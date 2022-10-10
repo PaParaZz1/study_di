@@ -61,7 +61,11 @@ class OptionsMulti(MultiAgentEnv, ):
         self._init_flag = False
         self._final_eval_reward = 0.
         return
-
+    
+    def init_first(self) -> None:
+        self.pid = _pid = os.getpid()
+        print(f'{datetime.now().strftime(self.datetime_str)} - PID:{self.pid:6d}')
+        
     def get_agent_obs(self):
         obs = np.random.uniform(-1, 1, (self.n_agents, self.agent_obs_shape)).astype(np.float32)
         return obs
@@ -73,7 +77,9 @@ class OptionsMulti(MultiAgentEnv, ):
 
     def reset(self):
         self._final_eval_reward = 0.
-
+        if not self._init_flag:
+            self.init_first()
+            self._init_flag=True
         obs = {'agent_state': self.get_agent_obs(), 'global_state': self.get_global_obs()}
         return obs
 
