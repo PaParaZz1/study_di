@@ -87,7 +87,7 @@ create_config = dict(
         type='multi_securities',
         import_names=['multi_env.multi_securities_env'],
     ),
-    env_manager=dict(type='base'),
+    env_manager=dict(type='subprocess'),
     policy=dict(
         type='sac',
         import_names=['ding.policy.sac'],
