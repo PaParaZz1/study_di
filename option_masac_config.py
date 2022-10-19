@@ -85,7 +85,7 @@ main_config = EasyDict(default_config)
 create_config = dict(
     env=dict(
         type='multi_securities',
-        import_names=['multi_env.multi_securities_env'],
+        import_names=['multi_securities_env'],
     ),
     env_manager=dict(type='subprocess'),
     policy=dict(

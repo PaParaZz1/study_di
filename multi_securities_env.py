@@ -7,8 +7,8 @@ from easydict import EasyDict
 from ding.envs import BaseEnv, BaseEnvTimestep
 from ding.torch_utils import to_ndarray, to_list
 from ding.utils import ENV_REGISTRY
-from .multi_options_train_env import MultiOptionsTrainingEnv
-from multi_env.securities_multi import OptionsMulti
+from multi_options_train_env import MultiOptionsTrainingEnv
+from securities_multi import OptionsMulti
 
 
 @ENV_REGISTRY.register('multi_securities')

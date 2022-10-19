@@ -22,7 +22,7 @@ if True:
     # from myclasses.qqmail.qqemail import SendEmail
     #
     # from myclasses.Securities_trading.CFFEX_trading.IOTradingEnv2 import IOTradingEnv2 as Env
-    from .multiagentenv import MultiAgentEnv
+    from multiagentenv import MultiAgentEnv
 
 
 class OptionsMulti(MultiAgentEnv, ):
@@ -61,11 +61,12 @@ class OptionsMulti(MultiAgentEnv, ):
         self._init_flag = False
         self._final_eval_reward = 0.
         return
-    
+
     def init_first(self) -> None:
         self.pid = _pid = os.getpid()
-        print(f'{datetime.now().strftime(self.datetime_str)} - PID:{self.pid:6d}')
-        
+        #print(f'{datetime.now().strftime(self.datetime_str)} - PID:{self.pid:6d}')
+        print(f'{datetime.now()} - PID:{self.pid:6d}')
+
     def get_agent_obs(self):
         obs = np.random.uniform(-1, 1, (self.n_agents, self.agent_obs_shape)).astype(np.float32)
         return obs
